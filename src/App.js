@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import gtransect from './context';
+import Add from './add';
+import Viewdel from './viewDel';
+import Header from './header';
 
 function App() {
+  let transection = useState([])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <gtransect.Provider value={transection}>
+      <div className="App">
+        <Header />        
+        <div className="rest">
+          <Viewdel />
+          <Add />
+        </div>
+        
+      </div>
+    </gtransect.Provider>
   );
 }
 
